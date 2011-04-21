@@ -15,6 +15,14 @@ namespace OAuth;
 interface DataStore
 {
     /**
+     * Save a new Consumer in the datastore and return TRUE if successful
+     * 
+     * @param \OAuth\Consumer $consumer
+     * @return bool
+     */
+    public function saveConsumer($consumer);
+
+    /**
      * Look up a Consumer in the datastore and return the Consumer object
      * 
      * @param string $consumerKey
