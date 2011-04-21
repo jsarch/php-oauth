@@ -189,7 +189,7 @@ class Server
      * @return \OAuth\Token
      * @throws \OAuth\Exception
      */
-    private function getToken($request, $consumer, $tokenType = 'access')
+    private function getToken($request, $consumer, $tokenType)
     {
         $tokenField = $request instanceof Request ? $request->getParameter('oauth_token') : null;
 
