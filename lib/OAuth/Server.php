@@ -98,11 +98,11 @@ class Server
      * @param \OAuth\Request $request
      * @return array (Consumer, Token)
      */
-    public function verifyRequest($request)
+    public function verifyRequest($request, $two_legged = FALSE)
     {
         $this->getVersion($request);
         $consumer = $this->getConsumer($request);
-        $token = $this->getToken($request, $consumer, "access");
+        $token = ($two_legged) ? NULL : $this->getToken($request, $consumer, "access");
         $this->checkSignature($request, $consumer, $token);
         return array($consumer, $token);
     }
